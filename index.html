@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sassy Vintage Tee – Pre‑Order</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #111016;
+      --bg-alt: #181720;
+      --accent: #ff2f7d;
+      --accent-soft: #ff6fa7;
+      --text-main: #f9f9f9;
+      --text-muted: #b3b3b9;
+      --border-soft: #2b2935;
+      --card-bg: #181720;
+      --danger: #ff4b4b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1b1726 0, #07040b 50%, #000000 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7,4,11,0.92);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      font-size: 0.92rem;
+      color: var(--accent);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+    }
+
+    .nav-link:hover {
+      color: var(--accent-soft);
+    }
+
+    .cart-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.3rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: linear-gradient(135deg, #1f1a29, #140f1e);
+      font-size: 0.75rem;
+      color: var(--accent-soft);
+    }
+
+    .cart-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.1rem;
+      height: 1.1rem;
+      border-radius: 999px;
+      background: var(--accent);
+      font-size: 0.7rem;
+      color: #000;
+      font-weight: 700;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.8rem 1.4rem 3rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.7fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      background: rgba(255,47,125,0.07);
+    }
+
+    .hero-title {
+      margin-top: 1rem;
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      line-height: 1.2;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      margin-top: 0.8rem;
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      max-width: 32rem;
+    }
+
+    .hero-cta-row {
+      margin-top: 1.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      border: none;
+      cursor: pointer;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #ff4f9a);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 30px rgba(255,47,125,0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(255,47,125,0.5);
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.7rem 1.1rem;
+      border: 1px solid var(--border-soft);
+      background: #121019;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-note strong {
+      color: var(--accent-soft);
+    }
+
+    .hero-card {
+      border-radius: 1.2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      background:
+        radial-gradient(circle at top left, rgba(255,47,125,0.22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.08), transparent 60%),
+        #14121c;
+      padding: 1.3rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      box-shadow: 0 22px 60px rgba(0,0,0,0.65);
+    }
+
+    .hero-card-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .hero-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-card-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .pill {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      background: rgba(0,0,0,0.45);
+    }
+
+    .hero-card-footer {
+      margin-top: 0.4rem;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card-footer span {
+      color: var(--accent-soft);
+    }
+
+    .section-heading {
+      font-size: 1.25rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .preorder-banner {
+      border-radius: 0.9rem;
+      padding: 0.9rem 1rem;
+      background: rgba(255,47,125,0.08);
+      border: 1px dashed rgba(255,47,125,0.45);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 1.4rem;
+    }
+
+    .preorder-banner strong {
+      color: var(--accent-soft);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      border-radius: 1rem;
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 0.85rem 0.9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.7);
+    }
+
+    .product-image-wrap {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.8rem;
+      background: #07040b;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image-wrap img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 0.55rem;
+      left: 0.55rem;
+      background: rgba(0,0,0,0.7);
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .product-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .product-subtitle {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .product-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .price {
+      font-weight: 700;
+      color: var(--accent-soft);
+      font-size: 0.9rem;
+    }
+
+    .sizes {
+      font-size: 0.76rem;
+    }
+
+    .product-footer {
+      margin-top: 0.7rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .preorder-note {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .preorder-note strong {
+      color: var(--accent-soft);
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      cursor: pointer;
+    }
+
+    .btn-outline span {
+      font-size: 0.9rem;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-soft);
+      color: var(--accent-soft);
+    }
+
+    .collection-chip-row {
+      margin-top: 0.4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      font-size: 0.7rem;
+    }
+
+    .collection-chip {
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--text-muted);
+      background: rgba(0,0,0,0.45);
+    }
+
+    .copy {
+      margin-top: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      max-width: 38rem;
+    }
+
+    .copy strong {
+      color: var(--accent-soft);
+    }
+
+    .perk-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 0.9rem;
+      font-size: 0.8rem;
+    }
+
+    .perk-pill {
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: #121019;
+      color: var(--text-muted);
+    }
+
+    .perk-pill strong {
+      color: var(--accent-soft);
+    }
+
+    .newsletter {
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #121019;
+      padding: 1.1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .newsletter-title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .newsletter-sub {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.3rem;
+    }
+
+    .newsletter-input {
+      flex: 1 1 180px;
+      padding: 0.6rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: #07040b;
+      color: var(--text-main);
+      font-size: 0.82rem;
+    }
+
+    .newsletter-input::placeholder {
+      color: #5f5a6b;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 1.4rem 1.4rem 2rem;
+      background: #07040b;
+      font-size: 0.8rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-soft);
+    }
+
+    .badge-preorder {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.6);
+      font-size: 0.7rem;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .shipping-note {
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .shipping-note strong {
+      color: var(--accent-soft);
+    }
+
+    .alert-error {
+      display: none;
+      margin-top: 0.7rem;
+      font-size: 0.78rem;
+      color: var(--danger);
+    }
+
+    .alert-error.visible {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero-card {
+        order: -1;
+      }
+      main {
+        padding-top: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="logo">SASSY VINTAGE</div>
+      <div class="nav-right">
+        <a href="#collection" class="nav-link">Shop</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#newsletter" class="nav-link">Sass Squad</a>
+        <div class="cart-pill">
+          Cart
+          <span class="cart-count" id="cart-count">0</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div>
+        <div class="hero-tag">
+          <span>Pre‑order Drop · Feb 2026</span>
+        </div>
+        <h1 class="hero-title">Speak Your Mind.<br /><span>Wear Your Attitude.</span></h1>
+        <p class="hero-sub">
+          One unapologetic graphic tee, two classic colours. Limited pre‑order run only – once this drop closes, this design won’t be restocked in the same colourway.
+        </p>
+        <div class="hero-cta-row">
+          <button class="btn-primary" onclick="scrollToCollection()">Shop the Tee</button>
+          <button class="btn-ghost" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+            Why pre‑order?
+          </button>
+        </div>
+        <p class="hero-note">
+          <strong>Pre‑orders are open until the end of February 2026.</strong> Tees go to print straight after and are expected to arrive with you in the second week of March 2026.
+        </p>
+      </div>
+
+      <aside class="hero-card" aria-label="Pre-order info">
+        <div class="hero-card-label">Unapologetically You</div>
+        <div class="hero-card-title">You bring the attitude, we bring the tee.</div>
+        <p class="copy">
+          We believe in speaking your truth, owning your attitude and looking damn good while you do it. This design blends classic pin‑up vibes with modern sass, printed on a premium unisex tee you’ll actually want to live in.
+        </p>
+        <div class="hero-card-pill-row">
+          <span class="pill">Sizes XS – 3XL</span>
+          <span class="pill">Unisex relaxed fit</span>
+          <span class="pill">Premium cotton blend</span>
+          <span class="pill">Printed in Australia</span>
+        </div>
+        <p class="hero-card-footer">
+          This drop is <span>pre‑order only</span> so we print exactly what’s needed, reduce waste and keep things sustainable and sassy.
+        </p>
+      </aside>
+    </section>
+
+    <!-- COLLECTION -->
+    <section id="collection">
+      <div class="section-heading">The Tee</div>
+      <p class="section-subtitle">One statement design in black or white.</p>
+
+      <div class="preorder-banner">
+        <strong>Pre‑order window:</strong> now until 29 February 2026. Tees go to print immediately after and are expected to ship in the <strong>second week of March 2026</strong>. If this timeline changes, we’ll email you with an updated ETA and the option for a full refund.
+      </div>
+
+      <div class="grid">
+        <article class="product-card">
+          <div class="product-image-wrap">
+            <span class="product-tag">Limited Drop</span>
+            <img src="1000009313.jpeg" alt="Black tee with bold retro pin-up artwork and speech bubble." />
+          </div>
+          <div class="product-subtitle">Graphic Tee · Unisex Relaxed Fit</div>
+          <h2 class="product-title">Sassy Vintage Tee</h2>
+          <p class="product-desc">
+            She’s dressed like a lady, talks like a savage and points directly at whoever needs to hear it. This tee is for truth‑tellers, boundary‑setters and anyone who’s outgrown being polite just to keep the peace.
+          </p>
+          <div class="product-meta">
+            <span class="price">$34.95</span>
+            <span class="sizes">XS–3XL · Black or White</span>
+          </div>
+          <div class="product-footer">
+            <button class="btn-primary" onclick="startCheckout('tee-black')">Pre‑order · Black</button>
+            <button class="btn-outline" onclick="startCheckout('tee-white')">
+              Pre‑order · White <span>→</span>
+            </button>
+            <p class="preorder-note">
+              <strong>Made to order.</strong> Your tee is printed after pre‑orders close, so we only create pieces that are genuinely loved (and you’re not wearing the same thing as everyone else).
+            </p>
+          </div>
+          <div class="collection-chip-row">
+            <span class="collection-chip">Premium cotton blend</span>
+            <span class="collection-chip">Vintage pin‑up artwork</span>
+            <span class="collection-chip">Everyday heavyweight tee</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="shipping-note">
+        <strong>Shipping:</strong> Orders are expected to dispatch in the second week of March 2026. You’ll receive tracking as soon as your tee leaves our printer. If production is delayed beyond this window, we’ll let you know and you can choose to wait or receive a full refund.
+      </p>
+
+      <p class="alert-error" id="checkout-error">
+        Something went wrong starting checkout. Please try again, or email us and we’ll fix it.
+      </p>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-heading">Unapologetically You</div>
+      <p class="copy">
+        Sassy Vintage Tees is for the ones who have outgrown quiet. Every design is a little love‑letter to the loud friend, the soft‑hearted savage and the person who decided they’re done shrinking to make other people comfortable.
+      </p>
+      <p class="copy">
+        We run small‑batch pre‑orders so we only print what’s actually loved – less waste, better quality and more room for future drops. You’re not just buying a tee, you’re joining a crew that believes your wardrobe should match your mouth.
+      </p>
+      <div class="perk-row">
+        <span class="perk-pill"><strong>Premium blanks</strong> chosen for softness and structure.</span>
+        <span class="perk-pill"><strong>Local print</strong> runs with attention to detail.</span>
+        <span class="perk-pill"><strong>Small‑batch drops</strong> so your tee feels like a find, not a uniform.</span>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section id="newsletter">
+      <div class="newsletter">
+        <div class="newsletter-title">Join the Sass Squad</div>
+        <p class="newsletter-sub">
+          Be the first to know about new drops, restocks and exclusive discount codes. No spam, just unapologetic drip.
+        </p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for joining the Sass Squad!');">
+          <input class="newsletter-input" type="email" placeholder="Your email address" required />
+          <button class="btn-primary" type="submit">Sign Me Up</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="badge-preorder">
+          <span>Pre‑order Drop</span> · Feb 2026
+        </div>
+        <p class="shipping-note">
+          &copy; 2026 Sassy Vintage Tees. Stay sassy.
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/refunds.html">Refunds</a>
+        <a href="/preorder.html">Pre‑order Info</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://js.stripe.com/v3"></script>
+  <script>
+    function scrollToCollection() {
+      document.getElementById('collection').scrollIntoView({behavior: 'smooth'});
+    }
+
+    const stripe = Stripe('pk_test_replace_with_your_publishable_key');
+    let cartCount = 0;
+
+    async function startCheckout(productId) {
+      try {
+        const res = await fetch('/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productId })
+        });
+        if (!res.ok) throw new Error('Network error');
+        const data = await res.json();
+        if (!data.id) throw new Error('Invalid session');
+        cartCount += 1;
+        document.getElementById('cart-count').textContent = cartCount;
+        const { error } = await stripe.redirectToCheckout({ sessionId: data.id });
+        if (error) {
+          document.getElementById('checkout-error').classList.add('visible');
+        }
+      } catch (err) {
+        document.getElementById('checkout-error').classList.add('visible');
+        console.error(err);
+      }
+    }
+  </script>
+</body>
+</html>
