@@ -195,56 +195,36 @@
       color: var(--accent-soft);
     }
 
-    .hero-card {
-      border-radius: 1.2rem;
-      border: 1px solid rgba(255,255,255,0.06);
-      background:
-        radial-gradient(circle at top left, rgba(255,47,125,0.22), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(255,255,255,0.08), transparent 60%),
-        #14121c;
-      padding: 1.3rem 1.25rem;
+    .hero-media {
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
-      box-shadow: 0 22px 60px rgba(0,0,0,0.65);
+      gap: 0.8rem;
     }
 
-    .hero-card-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--text-muted);
+    .hero-image-wrap {
+      border-radius: 1.2rem;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #000;
     }
 
-    .hero-card-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
+    .hero-image-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
-    .hero-card-pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
+    .hero-video-wrap {
+      border-radius: 1.2rem;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #000;
     }
 
-    .pill {
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      background: rgba(0,0,0,0.45);
-    }
-
-    .hero-card-footer {
-      margin-top: 0.4rem;
-      font-size: 0.76rem;
-      color: var(--text-muted);
-    }
-
-    .hero-card-footer span {
-      color: var(--accent-soft);
+    .hero-video-wrap video {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     .section-heading {
@@ -556,9 +536,6 @@
       .hero {
         grid-template-columns: 1fr;
       }
-      .hero-card {
-        order: -1;
-      }
       main {
         padding-top: 1.4rem;
       }
@@ -603,22 +580,14 @@
         </p>
       </div>
 
-      <aside class="hero-card" aria-label="Pre-order info">
-        <div class="hero-card-label">Unapologetically You</div>
-        <div class="hero-card-title">You bring the attitude, we bring the tee.</div>
-        <p class="copy">
-          We believe in speaking your truth, owning your attitude and looking damn good while you do it. This design blends classic pin‑up vibes with modern sass, printed on a premium unisex tee you’ll actually want to live in.
-        </p>
-        <div class="hero-card-pill-row">
-          <span class="pill">Sizes XS – 3XL</span>
-          <span class="pill">Unisex relaxed fit</span>
-          <span class="pill">Premium cotton blend</span>
-          <span class="pill">Printed in Australia</span>
+      <div class="hero-media" aria-label="Product preview">
+        <div class="hero-image-wrap">
+          <img src="Screenshot_20260217_192621_Grok.jpg" alt="Woman wearing the Sassy Vintage tee in a lifestyle setting." />
         </div>
-        <p class="hero-card-footer">
-          This drop is <span>pre‑order only</span> so we print exactly what’s needed, reduce waste and keep things sustainable and sassy.
-        </p>
-      </aside>
+        <div class="hero-video-wrap">
+          <video src="grok_video_2026-02-17-19-58-54.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
     </section>
 
     <!-- COLLECTION -->
@@ -634,7 +603,8 @@
         <article class="product-card">
           <div class="product-image-wrap">
             <span class="product-tag">Limited Drop</span>
-            <img src="1000009313.jpeg" alt="Black tee with bold retro pin-up artwork and speech bubble." />
+            <!-- Standalone shirt image -->
+            <img src="FILE-10-img5.jpg" alt="Sassy Vintage graphic tee with bold pin-up artwork and speech bubble." />
           </div>
           <div class="product-subtitle">Graphic Tee · Unisex Relaxed Fit</div>
           <h2 class="product-title">Sassy Vintage Tee</h2>
